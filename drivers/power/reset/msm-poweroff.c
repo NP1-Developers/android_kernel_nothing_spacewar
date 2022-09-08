@@ -540,11 +540,11 @@ static int msm_restart_probe(struct platform_device *pdev)
 	np = of_find_compatible_node(NULL, NULL,
 				"qcom,msm-imem-restart_reason");
 	if (!np) {
-		pr_err("unable to find DT imem restart reason node\n");
+		pr_debug("unable to find DT imem restart reason node\n");
 	} else {
 		restart_reason = of_iomap(np, 0);
 		if (!restart_reason) {
-			pr_err("unable to map imem restart reason offset\n");
+			pr_debug("unable to map imem restart reason offset\n");
 			ret = -ENOMEM;
 			goto err_restart_reason;
 		}
